@@ -39,8 +39,12 @@ public class ArrayStorage {
             Resume resume = storage[i];
             if (resume.uuid.equals(uuid)) {
                 storage[i] = null;
+                for (int j = i; j < storage.length - 1; j++) {
+                    storage[j] = storage[j + 1];
+                }
                 break;
             }
+
         }
     }
 
@@ -51,7 +55,7 @@ public class ArrayStorage {
         int count = 0;
         for (int i = 0; i < storage.length; i++) {
             if (storage[i] != null) {
-                count = i;
+                count++;
             }
         }
         return Arrays.copyOf(storage, count);
@@ -61,9 +65,9 @@ public class ArrayStorage {
         int count = 0;
         for (int i = 0; i < storage.length; i++) {
             if (storage[i] != null) {
-                count = i;
+                count++;
             }
         }
-        return count + 1;
+        return count;
     }
 }
