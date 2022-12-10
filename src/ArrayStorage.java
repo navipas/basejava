@@ -27,7 +27,7 @@ public class ArrayStorage {
 
         for (int i = 0; i < storage.length; i++) {
             Resume resume = storage[i];
-            if (resume.uuid.equals(uuid)) {
+            if (resume != null && resume.uuid.equals(uuid)) {
                 return resume;
             }
         }
